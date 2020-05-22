@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace Test2.Models
 {
     //本に載ってた。これで実行するたびにdbが自動生成されるようになるらしい。System.Data.Entityが使えれば。
-    public class createdb : DropCreateDatabaseAlways<MemberContext>
+    public class createdb //: DropCreateDatabaseAlways<MemberContext>
     {
         public int Id { get; set; }
         public string Name { get; set; }
