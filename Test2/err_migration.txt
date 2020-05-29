@@ -1,0 +1,40 @@
+PM> Update-Database
+Build started...
+Build succeeded.
+Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 3.1.4 initialized 'MemberContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (18ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT 1
+Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [MigrationId], [ProductVersion]
+      FROM [__EFMigrationsHistory]
+      ORDER BY [MigrationId];
+Microsoft.EntityFrameworkCore.Migrations[20402]
+      Applying migration '20200529071537_a'.
+Applying migration '20200529071537_a'.
+System.InvalidOperationException: To change the IDENTITY property of a column, the column needs to be dropped and recreated.
+   at Microsoft.EntityFrameworkCore.Migrations.SqlServerMigrationsSqlGenerator.Generate(AlterColumnOperation operation, IModel model, MigrationCommandListBuilder builder)
+   at Microsoft.EntityFrameworkCore.Migrations.MigrationsSqlGenerator.<>c.<.cctor>b__71_4(MigrationsSqlGenerator g, MigrationOperation o, IModel m, MigrationCommandListBuilder b)
+   at Microsoft.EntityFrameworkCore.Migrations.MigrationsSqlGenerator.Generate(MigrationOperation operation, IModel model, MigrationCommandListBuilder builder)
+   at Microsoft.EntityFrameworkCore.Migrations.SqlServerMigrationsSqlGenerator.Generate(MigrationOperation operation, IModel model, MigrationCommandListBuilder builder)
+   at Microsoft.EntityFrameworkCore.Migrations.MigrationsSqlGenerator.Generate(IReadOnlyList`1 operations, IModel model)
+   at Microsoft.EntityFrameworkCore.Migrations.SqlServerMigrationsSqlGenerator.Generate(IReadOnlyList`1 operations, IModel model)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.GenerateUpSql(Migration migration)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.<>c__DisplayClass15_2.<GetMigrationCommandLists>b__2()
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.Migrate(String targetMigration)
+   at Microsoft.EntityFrameworkCore.Design.Internal.MigrationsOperations.UpdateDatabase(String targetMigration, String contextType)
+   at Microsoft.EntityFrameworkCore.Design.OperationExecutor.UpdateDatabaseImpl(String targetMigration, String contextType)
+   at Microsoft.EntityFrameworkCore.Design.OperationExecutor.UpdateDatabase.<>c__DisplayClass0_0.<.ctor>b__0()
+   at Microsoft.EntityFrameworkCore.Design.OperationExecutor.OperationBase.Execute(Action action)
+To change the IDENTITY property of a column, the column needs to be dropped and recreated.
