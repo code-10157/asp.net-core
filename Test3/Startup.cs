@@ -29,6 +29,9 @@ namespace Test3
 
             services.AddDbContext<MemberContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("MemberContext")));
+
+            services.AddDbContext<ArticleContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("ArticleContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

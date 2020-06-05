@@ -29,6 +29,9 @@ namespace Test3.Migrations
                     b.Property<DateTime>("Birth")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("DateTime")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Emai")
                         .HasColumnType("nvarchar(max)");
 
