@@ -19,8 +19,8 @@ namespace Test3.Models
         //↓最大値
         [MaxLength(10)]
         public string Memo { get; set; }
-        //   [DisplayName("登録日時")]
-        //   public string DateTime { get; set; }
+        [DisplayName("登録日時")]
+        public string DateTime { get; set; }
         //   [DisplayName("タイムスタンプ")]
         //↓using System.ComponentModel.DataAnnotations;
         //    [Timestamp]
