@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-//using TaskList2.Data;
+using TaskList2.Data;
 using TaskList2.Models.Data;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -34,8 +34,8 @@ namespace TaskList2
                 try
                 {
                     var context = services.GetRequiredService<TasksContext>();
-                    context.Database.EnsureCreated();
-                    //DbInitializer.Initialize(context);
+                    //context.Database.EnsureCreated();
+                    DbInitializer.Initialize(context);
                 }
                 catch (Exception ex)
                 {

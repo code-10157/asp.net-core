@@ -33,7 +33,11 @@ namespace TaskList2.Controllers
                 return NotFound();
             }
 
+            //var project = await _context.Projects
+            //    .FirstOrDefaultAsync(m => m.ID == id);
             var project = await _context.Projects
+                .Include(s => s.Things)
+                .AsNoTracking()
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (project == null)
             {

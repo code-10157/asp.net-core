@@ -22,6 +22,7 @@ namespace TaskList2.Models
     public class Project
     {
     public int ID { get; set; }
+    [Required]
     [DisplayName("分類")]
     public Category? Category { get; set; }
     [Required]
@@ -37,6 +38,7 @@ namespace TaskList2.Models
     [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
     [DisplayName("完了日")]
     public DateTime CompletionDate { get; set; }
+    [Required]
     [DisplayName("優先度")]
     public Priority? Priority { get; set; }
     [DisplayName("備考")]
