@@ -13,7 +13,8 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Category)
+                <!--Html.DisplayNameFor(model => model.Category)-->
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["EnumSortParm"]">@Html.DisplayNameFor(model => model.Category)</a>
             </th>
             <th>
                 <!--Html.DisplayNameFor(model => model.ProjectName)-->
@@ -28,7 +29,8 @@
                 <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]">@Html.DisplayNameFor(model => model.CompletionDate)</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Priority)
+                <!--Html.DisplayNameFor(model => model.Priority)-->
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["EnumSortParm"]">@Html.DisplayNameFor(model => model.Priority)</a>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Comment)

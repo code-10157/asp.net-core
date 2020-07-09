@@ -28,6 +28,7 @@ namespace TaskList2.Controllers
         {
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
+            ViewData["EnumSortParm"] = sortOrder == "Enum" ? "Enum_desc" : "Enum";
             var projects = from s in _context.Projects
                            select s;
             switch (sortOrder)
@@ -46,8 +47,18 @@ namespace TaskList2.Controllers
                     //日付で昇順に並べ替えしたあとに選択すると通る
                     projects = projects.OrderByDescending(s => s.StartDate);
                     break;
+                case "Enum":
+                    projects = projects.OrderBy(s => s.Category);
+                    projects = projects.OrderBy(s => s.Priority);
+                    break;
+                case "Enum_desc":
+                    projects = projects.OrderByDescending(s => s.Category);
+                    projects = projects.OrderByDescending(s => s.Priority);
+                    break;
                 default:
                     projects = projects.OrderBy(s => s.ProjectName);
+                    //projectページに遷移するときに通る
+                    //→初期状態は名前の昇順
                     break;
             }
             return View(await projects.AsNoTracking().ToListAsync());
