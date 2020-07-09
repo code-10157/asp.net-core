@@ -20,7 +20,8 @@
                 <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">@Html.DisplayNameFor(model => model.ProjectName)</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.StartDate)
+                <!--Html.DisplayNameFor(model => model.StartDate)-->
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]">@Html.DisplayNameFor(model => model.StartDate)</a>
             </th>
             <th>
                 <!--Html.DisplayNameFor(model => model.CompletionDate)-->

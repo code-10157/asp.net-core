@@ -34,12 +34,17 @@ namespace TaskList2.Controllers
             {
                 case "name_desc":
                     projects = projects.OrderByDescending(s => s.ProjectName);
+                    //名前を選択すると通る
                     break;
                 case "Date":
                     projects = projects.OrderBy(s => s.CompletionDate);
+                    //日付を選択すると通る
+                    projects = projects.OrderBy(s => s.StartDate);
                     break;
                 case "date_desc":
                     projects = projects.OrderByDescending(s => s.CompletionDate);
+                    //日付で昇順に並べ替えしたあとに選択すると通る
+                    projects = projects.OrderByDescending(s => s.StartDate);
                     break;
                 default:
                     projects = projects.OrderBy(s => s.ProjectName);
