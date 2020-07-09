@@ -14,7 +14,7 @@
         <tr>
             <th>
                 <!--Html.DisplayNameFor(model => model.Category)-->
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["EnumSortParm"]">@Html.DisplayNameFor(model => model.Category)</a>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["CatSortParm"]">@Html.DisplayNameFor(model => model.Category)</a>
             </th>
             <th>
                 <!--Html.DisplayNameFor(model => model.ProjectName)-->
@@ -30,7 +30,7 @@
             </th>
             <th>
                 <!--Html.DisplayNameFor(model => model.Priority)-->
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["EnumSortParm"]">@Html.DisplayNameFor(model => model.Priority)</a>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["PriSortParm"]">@Html.DisplayNameFor(model => model.Priority)</a>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Comment)

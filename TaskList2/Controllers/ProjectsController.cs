@@ -28,7 +28,9 @@ namespace TaskList2.Controllers
         {
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
-            ViewData["EnumSortParm"] = sortOrder == "Enum" ? "Enum_desc" : "Enum";
+            //ViewData["EnumSortParm"] = sortOrder == "Enum" ? "Enum_desc" : "Enum";
+            ViewData["CatSortParm"] = sortOrder == "Cat" ? "Cat_desc" : "Cat";
+            ViewData["PriSortParm"] = sortOrder == "Pri" ? "Pri_desc" : "Pri";
             var projects = from s in _context.Projects
                            select s;
             switch (sortOrder)
@@ -47,12 +49,17 @@ namespace TaskList2.Controllers
                     //日付で昇順に並べ替えしたあとに選択すると通る
                     projects = projects.OrderByDescending(s => s.StartDate);
                     break;
-                case "Enum":
+                //enum要素ををそれぞれ並べ替える
+                case "Cat":
                     projects = projects.OrderBy(s => s.Category);
+                    break;
+                case "Cat_desc":
+                    projects = projects.OrderByDescending(s => s.Category);
+                    break;
+                case "Pri":
                     projects = projects.OrderBy(s => s.Priority);
                     break;
-                case "Enum_desc":
-                    projects = projects.OrderByDescending(s => s.Category);
+                case "Pri_desc":
                     projects = projects.OrderByDescending(s => s.Priority);
                     break;
                 default:
