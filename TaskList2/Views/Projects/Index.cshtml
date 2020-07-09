@@ -16,13 +16,15 @@
                 @Html.DisplayNameFor(model => model.Category)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ProjectName)
+                <!--Html.DisplayNameFor(model => model.ProjectName)-->
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">@Html.DisplayNameFor(model => model.ProjectName)</a>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.StartDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CompletionDate)
+                <!--Html.DisplayNameFor(model => model.CompletionDate)-->
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">@Html.DisplayNameFor(model => model.CompletionDate)</a>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Priority)

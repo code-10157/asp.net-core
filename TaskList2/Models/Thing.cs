@@ -18,7 +18,7 @@ namespace TaskList2.Models
     public class Thing
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int ThingID { get; set; }
+        public int ID { get; set; }
         public int ProjectID { get; set; }
         [DisplayName("工程")]
         public string Process { get; set; }

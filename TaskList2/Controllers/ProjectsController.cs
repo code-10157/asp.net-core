@@ -20,9 +20,32 @@ namespace TaskList2.Controllers
         }
 
         // GET: Projects
-        public async Task<IActionResult> Index()
+        //public async Task<IActionResult> Index()
+        //{
+        //    return View(await _context.Projects.ToListAsync());
+        //}
+        public async Task<IActionResult> Index(string sortOrder)
         {
-            return View(await _context.Projects.ToListAsync());
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
+            var projects = from s in _context.Projects
+                           select s;
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    projects = projects.OrderByDescending(s => s.ProjectName);
+                    break;
+                case "Date":
+                    projects = projects.OrderBy(s => s.CompletionDate);
+                    break;
+                case "date_desc":
+                    projects = projects.OrderByDescending(s => s.CompletionDate);
+                    break;
+                default:
+                    projects = projects.OrderBy(s => s.ProjectName);
+                    break;
+            }
+            return View(await projects.AsNoTracking().ToListAsync());
         }
 
         // GET: Projects/Details/5
