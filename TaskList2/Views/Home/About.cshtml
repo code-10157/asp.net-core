@@ -1,0 +1,31 @@
+﻿@model IEnumerable<TaskList2.Models.ProjectViewModels.EnrollmentDateGroup>
+
+@{
+    ViewData["Title"] = "Student Body Statistics";
+}
+
+<h2>Student Body Statistics</h2>
+
+<table>
+    <tr>
+        <th>
+            ---開始日---
+        </th>
+
+        <th>
+            ---登録数---
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnrollmentDate)&emsp;
+            </td>
+            <td align="center">
+                @item.ProjectCount
+            </td>
+        </tr>
+    }
+</table>

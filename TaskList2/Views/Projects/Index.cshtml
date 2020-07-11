@@ -9,6 +9,17 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            検索: <input type="text" name="SearchString" value="@ViewData["currentFilter"]" />
+            <input type="submit" value="Search" class="btn btn-default" /> |
+            <a asp-action="Index">Back to Full List</a>
+        </p>
+    </div>
+</form>
+
 <table class="table">
     <thead>
         <tr>
@@ -18,6 +29,11 @@
             </th>
             <th>
                 <!--Html.DisplayNameFor(model => model.ProjectName)-->
+                <!--<a asp-action="Index" asp-route-sortOrder="ViewData["NameSortParm"]">Html.DisplayNameFor(model => model.ProjectName)</a>-->
+                <!--
+                Html.ActionLink(
+                Html.DisplayNameFor(model => model.ProjectName).ToString(),"sortOrder",new { sortOrder = ViewData["NameSortParm"] }  )
+                -->
                 <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">@Html.DisplayNameFor(model => model.ProjectName)</a>
             </th>
             <th>
@@ -28,6 +44,12 @@
                 <!--Html.DisplayNameFor(model => model.CompletionDate)-->
                 <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]">@Html.DisplayNameFor(model => model.CompletionDate)</a>
             </th>
+            
+            <th>
+                <!--Html.DisplayNameFor(model => model.Status)-->
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["StaSortParm"]">@Html.DisplayNameFor(model => model.Status)</a>
+            </th>
+            
             <th>
                 <!--Html.DisplayNameFor(model => model.Priority)-->
                 <a asp-action="Index" asp-route-sortOrder="@ViewData["PriSortParm"]">@Html.DisplayNameFor(model => model.Priority)</a>
@@ -39,32 +61,38 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Category)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProjectName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StartDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CompletionDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Priority)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Comment)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProjectName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompletionDate)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Priority)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comment)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

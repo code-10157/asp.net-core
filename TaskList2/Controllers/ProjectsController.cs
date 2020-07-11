@@ -24,46 +24,67 @@ namespace TaskList2.Controllers
         //{
         //    return View(await _context.Projects.ToListAsync());
         //}
-        public async Task<IActionResult> Index(string sortOrder)
+        public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
+            ViewData["SDateSortParm"] = sortOrder == "SDate" ? "SDate_desc" : "P";
             //ViewData["EnumSortParm"] = sortOrder == "Enum" ? "Enum_desc" : "Enum";
             ViewData["CatSortParm"] = sortOrder == "Cat" ? "Cat_desc" : "Cat";
             ViewData["PriSortParm"] = sortOrder == "Pri" ? "Pri_desc" : "Pri";
+            ViewData["StaSortParm"] = sortOrder == "Sta" ? "Sta_desc" : "Sta";
+
+            ViewData["CurrentFilter"] = searchString;
+
             var projects = from s in _context.Projects
                            select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                projects = projects.Where(s => s.ProjectName.Contains(searchString));
+            //                           || s.Category.Contains("案件"));
+            }
+
             switch (sortOrder)
             {
                 case "name_desc":
-                    projects = projects.OrderByDescending(s => s.ProjectName);
-                    //名前を選択すると通る
+                    //名前を選択→名前降順
+                    projects = projects.OrderByDescending(s => s.ProjectName).ThenBy(s => s.StartDate).ThenBy(s => s.CompletionDate).ThenBy(s => s.Category);//.ThenBy(s => s.Category)
                     break;
                 case "Date":
-                    projects = projects.OrderBy(s => s.CompletionDate);
+                    projects = projects.OrderBy(s => s.CompletionDate).ThenBy(s => s.ProjectName).ThenBy(s => s.Category);
                     //日付を選択すると通る
-                    projects = projects.OrderBy(s => s.StartDate);
                     break;
                 case "date_desc":
-                    projects = projects.OrderByDescending(s => s.CompletionDate);
+                    projects = projects.OrderByDescending(s => s.CompletionDate).ThenBy(s => s.ProjectName).ThenBy(s => s.Category);
                     //日付で昇順に並べ替えしたあとに選択すると通る
-                    projects = projects.OrderByDescending(s => s.StartDate);
                     break;
-                //enum要素ををそれぞれ並べ替える
+                case "SDate":
+                    projects = projects.OrderBy(s => s.StartDate).ThenBy(s => s.ProjectName).ThenBy(s => s.Category);
+                    break;
+                case "Sdate_desc":
+                    projects = projects.OrderByDescending(s => s.StartDate).ThenBy(s => s.ProjectName).ThenBy(s => s.Category);
+                    break;
                 case "Cat":
-                    projects = projects.OrderBy(s => s.Category);
+                    projects = projects.OrderBy(s => s.Category).ThenBy(s => s.CompletionDate).ThenBy(s => s.ProjectName);
                     break;
                 case "Cat_desc":
-                    projects = projects.OrderByDescending(s => s.Category);
+                    projects = projects.OrderByDescending(s => s.Category).ThenBy(s => s.CompletionDate);
                     break;
                 case "Pri":
-                    projects = projects.OrderBy(s => s.Priority);
+                    projects = projects.OrderBy(s => s.Priority).ThenBy(s => s.CompletionDate);
                     break;
                 case "Pri_desc":
-                    projects = projects.OrderByDescending(s => s.Priority);
+                    projects = projects.OrderByDescending(s => s.Priority).ThenBy(s => s.CompletionDate);
                     break;
+                case "Sta":
+                    projects = projects.OrderBy(s => s.Status).ThenBy(s => s.CompletionDate);
+                    break;
+                case "Sta_desc":
+                    projects = projects.OrderByDescending(s => s.Status).ThenBy(s => s.CompletionDate);
+                    break;
+
                 default:
-                    projects = projects.OrderBy(s => s.ProjectName);
+                    projects = projects.OrderBy(s => s.ProjectName).ThenBy(s => s.StartDate).ThenBy(s => s.CompletionDate).ThenBy(s => s.Category); ;
                     //projectページに遷移するときに通る
                     //→初期状態は名前の昇順
                     break;
@@ -104,7 +125,8 @@ namespace TaskList2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Category,ProjectName,StartDate,CompletionDate,Priority,Comment")] Project project)
+        //Status後で追加
+        public async Task<IActionResult> Create([Bind("ID,Category,ProjectName,StartDate,CompletionDate,Status,Priority,Comment")] Project project)
         {
             if (ModelState.IsValid)
             {

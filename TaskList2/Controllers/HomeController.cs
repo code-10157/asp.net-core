@@ -7,15 +7,28 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using TaskList2.Models;
 
+using Microsoft.EntityFrameworkCore;
+using TaskList2.Data;
+using TaskList2.Models.ProjectViewModels;
+using TaskList2.Models.Data;
+
 namespace TaskList2.Controllers
 {
+    /*    public class HomeController : Controller
+        {
+     *         private readonly ILogger<HomeController> _logger;
+            public HomeController(ILogger<HomeController> logger)
+            {
+                _logger = logger;
+            }
+     */
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly TasksContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(TasksContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
@@ -26,6 +39,18 @@ namespace TaskList2.Controllers
         public IActionResult Privacy()
         {
             return View();
+        }
+        public async Task<ActionResult> About()
+        {
+            IQueryable<EnrollmentDateGroup> data =
+                from project in _context.Projects
+                group project by project.StartDate into dateGroup
+                select new EnrollmentDateGroup()
+                {
+                    EnrollmentDate = dateGroup.Key,
+                    ProjectCount = dateGroup.Count()
+                };
+            return View(await data.AsNoTracking().ToListAsync());
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

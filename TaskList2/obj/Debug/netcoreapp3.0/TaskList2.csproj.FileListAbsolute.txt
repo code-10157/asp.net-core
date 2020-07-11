@@ -129,3 +129,4 @@ C:\Users\m_kita\source\repos\TaskList2\obj\Debug\netcoreapp3.0\TaskList2.Views.p
 C:\Users\m_kita\source\repos\TaskList2\obj\Debug\netcoreapp3.0\TaskList2.csproj.CopyComplete
 C:\Users\m_kita\source\repos\TaskList2\obj\Debug\netcoreapp3.0\TaskList2.dll
 C:\Users\m_kita\source\repos\TaskList2\obj\Debug\netcoreapp3.0\TaskList2.pdb
+C:\Users\m_kita\source\repos\TaskList2\obj\Debug\netcoreapp3.0\Razor\Views\Home\About.cshtml.g.cs

@@ -13,51 +13,51 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <!--
-            <div class="form-group">
-                <label asp-for="Category" class="control-label"></label>
-                <input asp-for="Category" class="form-control" />
-                <span asp-validation-for="Category" class="text-danger"></span>
-            </div>
-            </div>   
-            -->
+    <div class="form-group">
+        <label asp-for="Category" class="control-label"></label>
+        <input asp-for="Category" class="form-control" />
+        <span asp-validation-for="Category" class="text-danger"></span>
+    </div>
+    </div>
+    -->
             <!--
-            <div class="form-group">
-                <label asp-for="Category" class="control-label"></label>
-                <div class="col-md-10">
-                    <select asp-for="Category" asp-items="Html.GetEnumSelectList<Category>()">
-                        <option selected="selected" value="">
-                            please select
-                        </option>
-                    </select>
-                    <span asp-validation-for="Category" class="text-danger"></span>
-                </div>
-                    <input asp-for="Category" class="form-control" />
-                    <span asp-validation-for="Category" class="text-danger"></span>
-            </div>                
-            -->
+    <div class="form-group">
+        <label asp-for="Category" class="control-label"></label>
+        <div class="col-md-10">
+            <select asp-for="Category" asp-items="Html.GetEnumSelectList<Category>()">
+                <option selected="selected" value="">
+                    please select
+                </option>
+            </select>
+            <span asp-validation-for="Category" class="text-danger"></span>
+        </div>
+            <input asp-for="Category" class="form-control" />
+            <span asp-validation-for="Category" class="text-danger"></span>
+    </div>
+    -->
             <!--
-            <div class="form-group">
-                <label asp-for="Category" class="control-label"></label>
-                    <select asp-for="Category" asp-items="Html.GetEnumSelectList<Category>()"></select>
-                    <span asp-validation-for="Category" class="text-danger"></span>
-                    <input asp-for="Category" class="form-control" />
-                    <span asp-validation-for="Category" class="text-danger"></span>
-            </div>                               
-            -->
+    <div class="form-group">
+        <label asp-for="Category" class="control-label"></label>
+            <select asp-for="Category" asp-items="Html.GetEnumSelectList<Category>()"></select>
+            <span asp-validation-for="Category" class="text-danger"></span>
+            <input asp-for="Category" class="form-control" />
+            <span asp-validation-for="Category" class="text-danger"></span>
+    </div>
+    -->
             <!--
-            <div class="form-group">
-                <label asp-for="Category" class="control-label"></label>
-                <select asp-for="Category" class="form-control" asp-items="Html.GetEnumSelectList<Category>()"></select>
-                <span asp-validation-for="Category" class="text-danger"></span>
-            </div>                             
-            -->
+    <div class="form-group">
+        <label asp-for="Category" class="control-label"></label>
+        <select asp-for="Category" class="form-control" asp-items="Html.GetEnumSelectList<Category>()"></select>
+        <span asp-validation-for="Category" class="text-danger"></span>
+    </div>
+    -->
             <div class="form-group">
                 <label asp-for="Category" class="control-label"></label>
                 <select asp-for="Category" class="form-control" asp-items="Html.GetEnumSelectList<Category>()">
                     <option value=" ">----------</option>
                 </select>
                 <span asp-validation-for="Category" class="text-danger"></span>
-            </div>                
+            </div>
             <div class="form-group">
                 <label asp-for="ProjectName" class="control-label"></label>
                 <input asp-for="ProjectName" class="form-control" />
@@ -73,6 +73,15 @@
                 <input asp-for="CompletionDate" class="form-control" />
                 <span asp-validation-for="CompletionDate" class="text-danger"></span>
             </div>
+            
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <select asp-for="Status" class="form-control" asp-items="Html.GetEnumSelectList<Status>()">
+                    <option value=" ">----------</option>
+                </select>
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>    
+                      
             <div class="form-group">
                 <label asp-for="Priority" class="control-label"></label>
                 <select asp-for="Priority" class="form-control" asp-items="Html.GetEnumSelectList<Priority>()">

@@ -38,6 +38,8 @@ namespace TaskList2.Models
     [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
     [DisplayName("完了日")]
     public DateTime CompletionDate { get; set; }
+    [DisplayName("状態")]
+    public Status? Status { get; set; }
     [Required]
     [DisplayName("優先度")]
     public Priority? Priority { get; set; }
