@@ -46,43 +46,43 @@ namespace TaskList2.Controllers
             switch (sortOrder)
             {
                 case "name_desc":
-                    things = things.OrderByDescending(s => s.TaskName);
+                    things = things.OrderByDescending(s => s.TaskName).ThenBy(s => s.Progress);
                     break;
                 case "Project":
-                    things = things.OrderBy(s => s.Projects).ThenBy(s => s.End).ThenBy(s => s.Start);
+                    things = things.OrderBy(s => s.Projects).ThenBy(s => s.End).ThenBy(s => s.Start).ThenBy(s => s.Progress);
                     break;
                 case "Project_desc":
-                    things = things.OrderByDescending(s => s.Projects).ThenBy(s => s.End).ThenBy(s => s.Start);
+                    things = things.OrderByDescending(s => s.Projects).ThenBy(s => s.End).ThenBy(s => s.Start).ThenBy(s => s.Progress);
                     break;
                 case "Pro":
-                    things = things.OrderBy(s => s.Process).ThenBy(s => s.End).ThenBy(s => s.Start);
+                    things = things.OrderBy(s => s.Process).ThenBy(s => s.End).ThenBy(s => s.Start).ThenBy(s => s.Progress);
                     break;
                 case "Pro_desc":
-                    things = things.OrderByDescending(s => s.Process).ThenBy(s => s.End).ThenBy(s => s.Start);
+                    things = things.OrderByDescending(s => s.Process).ThenBy(s => s.End).ThenBy(s => s.Start).ThenBy(s => s.Progress);
                     break;
                 case "SDate":
-                    things = things.OrderBy(s => s.Start).ThenBy(s => s.End);
+                    things = things.OrderBy(s => s.Start).ThenBy(s => s.End).ThenBy(s => s.Progress);
                     break;
                 case "Sdate_desc":
-                    things = things.OrderByDescending(s => s.Start).ThenBy(s => s.End);
+                    things = things.OrderByDescending(s => s.Start).ThenBy(s => s.End).ThenBy(s => s.Progress);
                     break;
                 case "EDate":
-                    things = things.OrderBy(s => s.End).ThenBy(s => s.Start);
+                    things = things.OrderBy(s => s.End).ThenBy(s => s.Start).ThenBy(s => s.Progress);
                     break;
                 case "Edate_desc":
-                    things = things.OrderByDescending(s => s.End).ThenBy(s => s.Start);
+                    things = things.OrderByDescending(s => s.End).ThenBy(s => s.Start).ThenBy(s => s.Progress);
                     break;
                 case "Sta":
-                    things = things.OrderBy(s => s.Status).ThenBy(s => s.End).ThenBy(s => s.Start);
+                    things = things.OrderBy(s => s.Status).ThenBy(s => s.End).ThenBy(s => s.Start).ThenBy(s => s.Progress);
                     break;
                 case "Sta_desc":
-                    things = things.OrderByDescending(s => s.Status).ThenBy(s => s.End).ThenBy(s => s.Start);
+                    things = things.OrderByDescending(s => s.Status).ThenBy(s => s.End).ThenBy(s => s.Start).ThenBy(s => s.Progress);
                     break;
                 case "Prog":
-                    things = things.OrderBy(s => s.Progress);
+                    things = things.OrderBy(s => s.Progress).ThenBy(s => s.Progress);
                     break;
                 case "Prog_desc":
-                    things = things.OrderByDescending(s => s.Progress);
+                    things = things.OrderByDescending(s => s.Progress).ThenBy(s => s.Progress);
                     break;
 /*
                 case "Pri":
@@ -93,7 +93,7 @@ namespace TaskList2.Controllers
                     break;
 */
                 default:
-                    things = things.OrderBy(s => s.TaskName).ThenBy(s => s.End).ThenBy(s => s.Start);
+                    things = things.OrderBy(s => s.TaskName).ThenBy(s => s.End).ThenBy(s => s.Start).ThenBy(s => s.Progress);
                     break;
             }
 

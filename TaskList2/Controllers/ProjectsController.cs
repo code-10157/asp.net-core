@@ -48,43 +48,43 @@ namespace TaskList2.Controllers
             {
                 case "name_desc":
                     //名前を選択→名前降順
-                    projects = projects.OrderByDescending(s => s.ProjectName).ThenBy(s => s.StartDate).ThenBy(s => s.CompletionDate).ThenBy(s => s.Category);//.ThenBy(s => s.Category)
+                    projects = projects.OrderByDescending(s => s.ProjectName).ThenBy(s => s.StartDate).ThenBy(s => s.CompletionDate).ThenBy(s => s.Category).ThenBy(s => s.Priority);//.ThenBy(s => s.Category)
                     break;
                 case "Date":
-                    projects = projects.OrderBy(s => s.CompletionDate).ThenBy(s => s.ProjectName).ThenBy(s => s.Category);
+                    projects = projects.OrderBy(s => s.CompletionDate).ThenBy(s => s.ProjectName).ThenBy(s => s.Category).ThenBy(s => s.Priority);
                     //日付を選択すると通る
                     break;
                 case "date_desc":
-                    projects = projects.OrderByDescending(s => s.CompletionDate).ThenBy(s => s.ProjectName).ThenBy(s => s.Category);
+                    projects = projects.OrderByDescending(s => s.CompletionDate).ThenBy(s => s.ProjectName).ThenBy(s => s.Category).ThenBy(s => s.Priority);
                     //日付で昇順に並べ替えしたあとに選択すると通る
                     break;
                 case "SDate":
-                    projects = projects.OrderBy(s => s.StartDate).ThenBy(s => s.ProjectName).ThenBy(s => s.Category);
+                    projects = projects.OrderBy(s => s.StartDate).ThenBy(s => s.ProjectName).ThenBy(s => s.Category).ThenBy(s => s.Priority);
                     break;
                 case "Sdate_desc":
-                    projects = projects.OrderByDescending(s => s.StartDate).ThenBy(s => s.ProjectName).ThenBy(s => s.Category);
+                    projects = projects.OrderByDescending(s => s.StartDate).ThenBy(s => s.ProjectName).ThenBy(s => s.Category).ThenBy(s => s.Priority);
                     break;
                 case "Cat":
-                    projects = projects.OrderBy(s => s.Category).ThenBy(s => s.CompletionDate).ThenBy(s => s.ProjectName);
+                    projects = projects.OrderBy(s => s.Category).ThenBy(s => s.CompletionDate).ThenBy(s => s.ProjectName).ThenBy(s => s.Priority);
                     break;
                 case "Cat_desc":
-                    projects = projects.OrderByDescending(s => s.Category).ThenBy(s => s.CompletionDate);
+                    projects = projects.OrderByDescending(s => s.Category).ThenBy(s => s.CompletionDate).ThenBy(s => s.Priority);
                     break;
                 case "Pri":
-                    projects = projects.OrderBy(s => s.Priority).ThenBy(s => s.CompletionDate);
+                    projects = projects.OrderBy(s => s.Priority).ThenBy(s => s.CompletionDate).ThenBy(s => s.Priority);
                     break;
                 case "Pri_desc":
-                    projects = projects.OrderByDescending(s => s.Priority).ThenBy(s => s.CompletionDate);
+                    projects = projects.OrderByDescending(s => s.Priority).ThenBy(s => s.CompletionDate).ThenBy(s => s.Priority);
                     break;
                 case "Sta":
-                    projects = projects.OrderBy(s => s.Status).ThenBy(s => s.CompletionDate);
+                    projects = projects.OrderBy(s => s.Status).ThenBy(s => s.CompletionDate).ThenBy(s => s.Priority);
                     break;
                 case "Sta_desc":
-                    projects = projects.OrderByDescending(s => s.Status).ThenBy(s => s.CompletionDate);
+                    projects = projects.OrderByDescending(s => s.Status).ThenBy(s => s.CompletionDate).ThenBy(s => s.Priority);
                     break;
 
                 default:
-                    projects = projects.OrderBy(s => s.ProjectName).ThenBy(s => s.StartDate).ThenBy(s => s.CompletionDate).ThenBy(s => s.Category); 
+                    projects = projects.OrderBy(s => s.ProjectName).ThenBy(s => s.StartDate).ThenBy(s => s.CompletionDate).ThenBy(s => s.Category).ThenBy(s => s.Priority); 
                     //projectページに遷移するときに通る
                     break;
             }

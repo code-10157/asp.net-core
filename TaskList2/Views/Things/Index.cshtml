@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Task</h1>
+<h3>Task</h3>
 
 <p>
     <a asp-action="Create">新規追加</a>
@@ -74,7 +74,7 @@
                     @Html.DisplayFor(modelItem => item.Status)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Progress)
+                    @Html.DisplayFor(modelItem => item.Progress)&#037;
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Memo)
