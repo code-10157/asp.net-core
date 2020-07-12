@@ -1,0 +1,81 @@
+﻿@model TaskList2.Models.Thing
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h3>追加</h3>
+
+<h4>Task</h4>
+<a>※工程の入力は「1.〇〇」「2.××」「…」を推奨</a>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ProjectID" class="control-label"></label>
+                <select asp-for="ProjectID" class="form-control" asp-items="ViewBag.ProjectID">
+                    <option value=" ">----------</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Process" class="control-label"></label>
+                <input asp-for="Process" class="form-control" />
+                <span asp-validation-for="Process" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TaskName" class="control-label"></label>
+                <input asp-for="TaskName" class="form-control" />
+                <span asp-validation-for="TaskName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Start" class="control-label"></label>
+                <input asp-for="Start" class="form-control" />
+                <span asp-validation-for="Start" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="End" class="control-label"></label>
+                <input asp-for="End" class="form-control" />
+                <span asp-validation-for="End" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <select asp-for="Status" class="form-control" asp-items="Html.GetEnumSelectList<Status>()">
+                    <option value=" ">----------</option>
+                </select>
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>            
+            <div class="form-group">
+                <label asp-for="Progress" class="control-label"></label><a>&#040;0-100&#041;</a>
+                <input asp-for="Progress" class="form-control" />
+                <span asp-validation-for="Progress" class="text-danger"></span>
+            </div>
+            <!--
+            <div class="form-group">
+                <label asp-for="Progress" class="control-label"></label>
+                <select asp-for="Progress" class="form-control" asp-items="Model.ProgressList">
+                    <option value=" ">----------</option>
+                </select>
+                <span asp-validation-for="Progress" class="text-danger"></span>
+            </div>    
+            -->      
+            <div class="form-group">
+                <label asp-for="Memo" class="control-label"></label>
+                <textarea asp-for="Memo" class="form-control"></textarea>
+                <span asp-validation-for="Memo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">戻る</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

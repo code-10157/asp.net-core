@@ -28,7 +28,7 @@ namespace TaskList2.Controllers
         {
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
-            ViewData["SDateSortParm"] = sortOrder == "SDate" ? "SDate_desc" : "P";
+            ViewData["SDateSortParm"] = sortOrder == "SDate" ? "SDate_desc" : "SDate";
             //ViewData["EnumSortParm"] = sortOrder == "Enum" ? "Enum_desc" : "Enum";
             ViewData["CatSortParm"] = sortOrder == "Cat" ? "Cat_desc" : "Cat";
             ViewData["PriSortParm"] = sortOrder == "Pri" ? "Pri_desc" : "Pri";
@@ -41,7 +41,7 @@ namespace TaskList2.Controllers
             if (!String.IsNullOrEmpty(searchString))
             {
                 projects = projects.Where(s => s.ProjectName.Contains(searchString));
-            //                           || s.Category.Contains("案件"));
+                //                           || s.Category.Contains("案件"));
             }
 
             switch (sortOrder)
@@ -84,9 +84,8 @@ namespace TaskList2.Controllers
                     break;
 
                 default:
-                    projects = projects.OrderBy(s => s.ProjectName).ThenBy(s => s.StartDate).ThenBy(s => s.CompletionDate).ThenBy(s => s.Category); ;
+                    projects = projects.OrderBy(s => s.ProjectName).ThenBy(s => s.StartDate).ThenBy(s => s.CompletionDate).ThenBy(s => s.Category); 
                     //projectページに遷移するときに通る
-                    //→初期状態は名前の昇順
                     break;
             }
             return View(await projects.AsNoTracking().ToListAsync());
@@ -158,7 +157,7 @@ namespace TaskList2.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Category,ProjectName,StartDate,CompletionDate,Priority,Comment")] Project project)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Category,ProjectName,StartDate,CompletionDate,Status,Priority,Comment")] Project project)
         {
             if (id != project.ID)
             {

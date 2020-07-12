@@ -1,0 +1,90 @@
+﻿@model IEnumerable<TaskList2.Models.Thing>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Task</h1>
+
+<p>
+    <a asp-action="Create">新規追加</a>
+</p>
+
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            入力※: <input type="text" name="SearchString" value="@ViewData["currentFilter"]" />
+            <input type="submit" value="検索" class="btn btn-default" /> |
+            <a asp-action="Index">絞り込みなし</a>
+            <br />※作業名
+        </p>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["ProjectSortParm"]">@Html.DisplayNameFor(model => model.Projects)</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["ProSortParm"]">@Html.DisplayNameFor(model => model.Process)</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">@Html.DisplayNameFor(model => model.TaskName)</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["SDateSortParm"]">@Html.DisplayNameFor(model => model.Start)</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["EDateSortParm"]">@Html.DisplayNameFor(model => model.End)</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["StaSortParm"]">@Html.DisplayNameFor(model => model.Status)</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["ProgSortParm"]">@Html.DisplayNameFor(model => model.Progress)&#040;&#037;&#041;</a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Memo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Projects.ProjectName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Process)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TaskName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Start)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.End)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Progress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Memo)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ID">編集</a> |
+                    <a asp-action="Details" asp-route-id="@item.ID">詳細</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ID">削除</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
