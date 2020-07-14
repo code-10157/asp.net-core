@@ -22,25 +22,27 @@ namespace TaskList2.Models
     public class Project
     {
     public int ID { get; set; }
-    [Required]
+    [Required(ErrorMessage = "{0}を入力してください。")]
     [DisplayName("分類")]
     public Category? Category { get; set; }
-    [Required]
+    [Required(ErrorMessage = "{0}を入力してください。")]
     [StringLength(50)]
     [DisplayName("プロジェクト名")]
     //[StringLength(50, MinimumLength = 2)]
     public string ProjectName { get; set; }
+    [Required(ErrorMessage = "{0}を入力してください。")]
     [DataType(DataType.Date)]
     [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
     [DisplayName("開始日")]
     public DateTime StartDate { get; set; }
+    [Required(ErrorMessage = "{0}を入力してください。")]
     [DataType(DataType.Date)]
     [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
     [DisplayName("完了日")]
     public DateTime CompletionDate { get; set; }
     [DisplayName("状態")]
     public Status? Status { get; set; }
-    [Required]
+    [Required(ErrorMessage = "{0}を入力してください。")]
     [DisplayName("優先度")]
     public Priority? Priority { get; set; }
     [DisplayName("備考")]

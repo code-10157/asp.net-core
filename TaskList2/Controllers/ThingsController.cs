@@ -63,13 +63,13 @@ namespace TaskList2.Controllers
                 case "SDate":
                     things = things.OrderBy(s => s.Start).ThenBy(s => s.End).ThenBy(s => s.Progress);
                     break;
-                case "Sdate_desc":
+                case "SDate_desc":
                     things = things.OrderByDescending(s => s.Start).ThenBy(s => s.End).ThenBy(s => s.Progress);
                     break;
                 case "EDate":
                     things = things.OrderBy(s => s.End).ThenBy(s => s.Start).ThenBy(s => s.Progress);
                     break;
-                case "Edate_desc":
+                case "EDate_desc":
                     things = things.OrderByDescending(s => s.End).ThenBy(s => s.Start).ThenBy(s => s.Progress);
                     break;
                 case "Sta":

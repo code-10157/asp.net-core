@@ -61,7 +61,7 @@ namespace TaskList2.Controllers
                 case "SDate":
                     projects = projects.OrderBy(s => s.StartDate).ThenBy(s => s.ProjectName).ThenBy(s => s.Category).ThenBy(s => s.Priority);
                     break;
-                case "Sdate_desc":
+                case "SDate_desc":
                     projects = projects.OrderByDescending(s => s.StartDate).ThenBy(s => s.ProjectName).ThenBy(s => s.Category).ThenBy(s => s.Priority);
                     break;
                 case "Cat":
