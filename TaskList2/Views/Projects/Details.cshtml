@@ -59,12 +59,14 @@
                     <th>工程</th>
                     <th>タスク</th>
                     <th>完了予定日</th>
+                    <th>状態</th>
                     <th>進捗</th>
 
                 </tr>
                 @foreach (var item in Model.Things)
                 {
-                    <tr>
+                    string finishedRow = (item.Status.ToString() == "完了") ? "finished" : "";
+                    <tr class="@finishedRow">
                         <td>
                             @Html.DisplayFor(modelItem => item.Process)
                         </td>
@@ -75,6 +77,10 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.End)
                         </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Status)
+                        </td>
+
                         <td>
                             @Html.DisplayFor(modelItem => item.Progress)&#037;
                         </td>

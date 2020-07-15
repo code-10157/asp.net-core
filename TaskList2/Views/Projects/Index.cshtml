@@ -21,9 +21,9 @@
     </div>
 </form>
 
-
 <table class="table">
     <thead>
+        
         <tr>
             <th>
                 <!--Html.DisplayNameFor(model => model.Category)-->
@@ -33,9 +33,9 @@
                 <!--Html.DisplayNameFor(model => model.ProjectName)-->
                 <!--<a asp-action="Index" asp-route-sortOrder="ViewData["NameSortParm"]">Html.DisplayNameFor(model => model.ProjectName)</a>-->
                 <!--
-                Html.ActionLink(
-                Html.DisplayNameFor(model => model.ProjectName).ToString(),"sortOrder",new { sortOrder = ViewData["NameSortParm"] }  )
-                -->
+            Html.ActionLink(
+            Html.DisplayNameFor(model => model.ProjectName).ToString(),"sortOrder",new { sortOrder = ViewData["NameSortParm"] }  )
+            -->
                 <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">@Html.DisplayNameFor(model => model.ProjectName)</a>
             </th>
             <th>
@@ -46,12 +46,12 @@
                 <!--Html.DisplayNameFor(model => model.CompletionDate)-->
                 <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]">@Html.DisplayNameFor(model => model.CompletionDate)</a>
             </th>
-            
+
             <th>
                 <!--Html.DisplayNameFor(model => model.Status)-->
                 <a asp-action="Index" asp-route-sortOrder="@ViewData["StaSortParm"]">@Html.DisplayNameFor(model => model.Status)</a>
             </th>
-            
+
             <th>
                 <!--Html.DisplayNameFor(model => model.Priority)-->
                 <a asp-action="Index" asp-route-sortOrder="@ViewData["PriSortParm"]">@Html.DisplayNameFor(model => model.Priority)</a>
@@ -65,7 +65,9 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
+             string finishedRow = (item.Status.ToString() == "完了") ? "finished" : "";
+
+            <tr class="@finishedRow">
                 <td>
                     @Html.DisplayFor(modelItem => item.Category)
                 </td>

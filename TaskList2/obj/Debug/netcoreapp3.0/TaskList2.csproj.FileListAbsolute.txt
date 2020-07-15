@@ -100,7 +100,6 @@ C:\Users\m_kita\source\repos\TaskList2\bin\Debug\netcoreapp3.0\runtimes\win-x86\
 C:\Users\m_kita\source\repos\TaskList2\bin\Debug\netcoreapp3.0\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\m_kita\source\repos\TaskList2\bin\Debug\netcoreapp3.0\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\m_kita\source\repos\TaskList2\bin\Debug\netcoreapp3.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\m_kita\source\repos\TaskList2\obj\Debug\netcoreapp3.0\TaskList2.csprojAssemblyReference.cache
 C:\Users\m_kita\source\repos\TaskList2\obj\Debug\netcoreapp3.0\staticwebassets\TaskList2.StaticWebAssets.Manifest.cache
 C:\Users\m_kita\source\repos\TaskList2\obj\Debug\netcoreapp3.0\staticwebassets\TaskList2.StaticWebAssets.xml
 C:\Users\m_kita\source\repos\TaskList2\obj\Debug\netcoreapp3.0\TaskList2.MvcApplicationPartsAssemblyInfo.cache
@@ -135,3 +134,4 @@ C:\Users\m_kita\source\repos\TaskList2\obj\Debug\netcoreapp3.0\TaskList2.Views.p
 C:\Users\m_kita\source\repos\TaskList2\obj\Debug\netcoreapp3.0\TaskList2.csproj.CopyComplete
 C:\Users\m_kita\source\repos\TaskList2\obj\Debug\netcoreapp3.0\TaskList2.dll
 C:\Users\m_kita\source\repos\TaskList2\obj\Debug\netcoreapp3.0\TaskList2.pdb
+C:\Users\m_kita\source\repos\TaskList2\obj\Debug\netcoreapp3.0\TaskList2.csprojAssemblyReference.cache

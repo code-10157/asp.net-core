@@ -54,7 +54,9 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
+            string finishedRow = (item.Status.ToString() == "完了") ? "finished" : "";
+
+            <tr class="@finishedRow">
                 <td>
                     @Html.DisplayFor(modelItem => item.Projects.ProjectName)
                 </td>
@@ -85,6 +87,6 @@
                     <a asp-action="Delete" asp-route-id="@item.ID">削除</a>
                 </td>
             </tr>
-        }
-    </tbody>
+            }
+        </tbody>
 </table>
