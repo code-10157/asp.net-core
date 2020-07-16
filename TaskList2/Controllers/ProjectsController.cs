@@ -27,7 +27,7 @@ namespace TaskList2.Controllers
         public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-            ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
+            ViewData["DateSortParm"] = sortOrder == "Date" ? "Date_desc" : "Date";
             ViewData["SDateSortParm"] = sortOrder == "SDate" ? "SDate_desc" : "SDate";
             //ViewData["EnumSortParm"] = sortOrder == "Enum" ? "Enum_desc" : "Enum";
             ViewData["CatSortParm"] = sortOrder == "Cat" ? "Cat_desc" : "Cat";
@@ -54,7 +54,7 @@ namespace TaskList2.Controllers
                     projects = projects.OrderBy(s => s.CompletionDate).ThenBy(s => s.ProjectName).ThenBy(s => s.Category).ThenBy(s => s.Priority);
                     //日付を選択すると通る
                     break;
-                case "date_desc":
+                case "Date_desc":
                     projects = projects.OrderByDescending(s => s.CompletionDate).ThenBy(s => s.ProjectName).ThenBy(s => s.Category).ThenBy(s => s.Priority);
                     //日付で昇順に並べ替えしたあとに選択すると通る
                     break;

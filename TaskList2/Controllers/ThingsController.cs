@@ -26,7 +26,7 @@ namespace TaskList2.Controllers
             ViewData["ProjectSortParm"] = sortOrder == "Project" ? "Project_desc" : "Project";
             ViewData["ProSortParm"] = sortOrder == "Pro" ? "Pro_desc" : "Pro";
             ViewData["SDateSortParm"] = sortOrder == "SDate" ? "SDate_desc" : "SDate";
-            ViewData["EDateSortParm"] = sortOrder == "EDate" ? "Edate_desc" : "EDate";
+            ViewData["EDateSortParm"] = sortOrder == "EDate" ? "EDate_desc" : "EDate";
             ViewData["StaSortParm"] = sortOrder == "Sta" ? "Sta_desc" : "Sta";
             ViewData["ProgSortParm"] = sortOrder == "Prog" ? "Prog_desc" : "Prog";
             //ViewData["EnumSortParm"] = sortOrder == "Enum" ? "Enum_desc" : "Enum";
